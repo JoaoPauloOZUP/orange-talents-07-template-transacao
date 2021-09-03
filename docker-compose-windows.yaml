@@ -46,6 +46,17 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: propostas
 
+  postgres_transacoes:
+    image: 'postgres:9.6-alpine'
+    volumes:
+      - postgres-volume-transacoes:/var/lib/postgresql/data
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: transacoes
+
   postgres:
     image: 'postgres:9.6-alpine'
     volumes:
@@ -164,3 +175,4 @@ volumes:
   postgres-volume:
   postgres-volume-proposta:
   aplicacao:
+  postgres-volume-transacoes:
