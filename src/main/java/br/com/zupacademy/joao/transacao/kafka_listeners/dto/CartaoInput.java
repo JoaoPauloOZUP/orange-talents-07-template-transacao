@@ -20,4 +20,5 @@ public class CartaoInput {
     public Cartao toCartao() {
         return new Cartao(id, email);
     }
+
 }

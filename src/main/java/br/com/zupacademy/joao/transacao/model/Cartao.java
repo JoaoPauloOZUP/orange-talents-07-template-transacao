@@ -1,9 +1,8 @@
 package br.com.zupacademy.joao.transacao.model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,10 +11,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 public class Cartao {
 
-    @Id @GeneratedValue(strategy = IDENTITY)
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @NotNull @NotBlank
+    @NotNull
+    @NotBlank
     private String numeroCartao;
 
     @NotNull
