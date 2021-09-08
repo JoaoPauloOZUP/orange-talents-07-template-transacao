@@ -2,6 +2,8 @@ package br.com.zupacademy.joao.transacao.kafka_listeners;
 
 import br.com.zupacademy.joao.transacao.kafka_listeners.dto.TransacaoInput;
 import br.com.zupacademy.joao.transacao.model.Transacao;
+import br.com.zupacademy.joao.transacao.repository.CartaoRepository;
+import br.com.zupacademy.joao.transacao.repository.EstabelecimentoRepository;
 import br.com.zupacademy.joao.transacao.repository.TransacaoRepository;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
@@ -30,6 +32,6 @@ public class TransacaoListener {
             logger.error("Erro no momento de persistencia. ERRO={}, CAUSA={}", exception.getMessage(), exception.getCause().getMessage());
         }
 
-        logger.info("Transacao salva. TRANSACAO_ID={}", transacao.getIdTransacao());
+        logger.info("Transacao salva. TRANSACAO_ID={}", transacao.getId());
     }
 }

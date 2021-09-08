@@ -1,32 +1,24 @@
 package br.com.zupacademy.joao.transacao.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
-import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Transacao {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-
-    @NotNull
-    @NotBlank
-    private String idTransacao;
+    private String id;
 
     @NotNull
     private BigDecimal valor;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     @NotNull
     private Estabelecimento estabelecimento;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @NotNull
     private Cartao cartao;
 
@@ -38,14 +30,22 @@ public class Transacao {
     }
 
     public Transacao(String idTransacao, BigDecimal valor, Estabelecimento estabelecimento, Cartao cartao, LocalDateTime efetivadaEm) {
-        this.idTransacao = idTransacao;
+        this.id = idTransacao;
         this.valor = valor;
         this.estabelecimento = estabelecimento;
         this.cartao = cartao;
         this.efetivadaEm = efetivadaEm;
     }
 
-    public String getIdTransacao() {
-        return idTransacao;
+    public String getId() {
+        return id;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public LocalDateTime getEfetivadaEm() {
+        return efetivadaEm;
     }
 }

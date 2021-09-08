@@ -36,4 +36,12 @@ public class TransacaoInput {
     public Transacao toTransacao() {
         return new Transacao(id, valor, estabelecimento.toEstabelecimento(), cartao.toCartao(), efetivadaEm);
     }
+
+    public EstabelecimentoInput getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public CartaoInput getCartao() {
+        return cartao;
+    }
 }
