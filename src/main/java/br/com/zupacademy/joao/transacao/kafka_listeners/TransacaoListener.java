@@ -28,10 +28,9 @@ public class TransacaoListener {
 
         try {
             transacaoRepository.save(transacao);
+            logger.info("Transacao salva. TRANSACAO_ID={}", transacao.getId());
         } catch(TransactionException exception) {
-            logger.error("Erro no momento de persistencia. ERRO={}, CAUSA={}", exception.getMessage(), exception.getCause().getMessage());
+            logger.error("Erro no momento de persistencia. ERRO={}, CAUSA={}", exception.getMessage());
         }
-
-        logger.info("Transacao salva. TRANSACAO_ID={}", transacao.getId());
     }
 }
